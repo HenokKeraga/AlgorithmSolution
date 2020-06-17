@@ -1,0 +1,26 @@
+greedy algorithm:
+Given an array of non-negative integers, you are initially positioned at the first index of the array.
+
+Each element in the array represents your maximum jump length at that position.
+
+Determine if you are able to reach the last index.
+
+class Solution {
+    
+    
+    public boolean canJump(int[] nums) {
+        
+       int medresha=nums.length-1;
+        
+        for(int j=nums.length -1;j>=0;j--){
+          
+            if((j+nums[j])>=medresha){
+                medresha=j;
+            }
+            
+        }
+        
+        
+        return medresha==0;
+    }
+}

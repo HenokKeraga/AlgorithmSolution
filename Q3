@@ -32,3 +32,24 @@ class Solution {
         
     }
 }
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        
+        Map<Character,Long> result=ransomNote.chars().mapToObj(ch->(char)ch).collect(Collectors.groupingBy(c->c,Collectors.counting())) ;
+        
+        
+        
+        for(int j=0;j<magazine.length();j++){
+            Character ch2=magazine.charAt(j);
+            if(result.containsKey(ch2)){
+                result.put(ch2,result.get(ch2)-1);   
+                if(result.get(ch2)==0){
+                    result.remove(ch2);
+                }
+            }
+        }
+        
+        return result.isEmpty();
+        
+    }
+}
